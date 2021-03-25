@@ -5,4 +5,5 @@
 
 var sum_to_n = function(n) {
     // your code here
+    return n/2 * (1 + n);
 };
