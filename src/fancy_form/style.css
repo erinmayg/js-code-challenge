@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+:root {
+  --bg-color: #141616;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   display: flex;
@@ -6,41 +16,165 @@ body {
   align-items: center;
   justify-content: center;
   min-width: 360px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+
+  background: var(--bg-color);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  color: whitesmoke;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 1rem;
 }
 
 form {
-  width: 320px;
+  min-width: 25%;
+  max-width: 100vw;
   display: block;
   margin: 0 auto;
+
+  padding: 2rem 4rem;
+  border-radius: 50px;
+  background: var(--bg-color);
+  box-shadow: 10px 10px 20px #0f1111, -10px -10px 20px #191c1c;
 }
 
-form>input,
-form>textarea, 
-form>label {
+form input:focus {
+  outline: none;
+}
+
+form > .input,
+form > textarea {
   width: 100%;
   display: block;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
+
+  border-radius: 50px;;
+  background: #141616;
+  box-shadow: inset -10px -10px 20px #0f1111, inset 10px 10px 20px #191c1c;
+  border-radius: 50px;
+  background: linear-gradient(315deg, #101010, #131313);
+  box-shadow:  -20px -20px 60px #0f0f0f,
+              20px 20px 60px #151515;
 }
 
-form>label {
-  color: rgba(0,0,0,.7);
-  font-size: 1rem;
+form > label {
+  /* color: rgba(0, 0, 0, 0.7); */
+  color: whitesmoke;
+  font-size: 1.2rem;
   font-weight: bold;
-}
-form>input,
-form>textarea {
-  padding: .5rem;
-  border-radius: 4px;
-  border: 1px solid rgba(0,0,0,.1);
+  margin-top: 1rem;
+  display: inline-block;
 }
 
-form>button {
-  padding: .5rem 1.5rem;
-  background: #090;
-  color: #fff;
+form > label:first-of-type {
+  margin-top: 2rem;
+}
+
+form input::placeholder {
+  color: whitesmoke;
+  opacity: 0.2;
+}
+
+form input,
+form textarea {
+  color: #19b962;
+  background: none;
   border: none;
-  font-weight: 900;
-  border-radius: 4px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+form > button {
+  padding: 0.8rem 1.8rem;
+  margin: 1rem 0rem;
+  color: #fff;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  font-size: 1.1rem;
   cursor: pointer;
+  
+  border-radius: 50px;
+  background: linear-gradient(145deg, #1fe77b, #0f6939);
+  box-shadow:  10px 10px 20px #0a0b0b,
+             -10px -10px 20px #101313;
+  transition: box-shadow ease cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+form > button:hover {
+  background: #19b962;
+  box-shadow: inset 10px 10px 20px #0f6939,
+            inset -10px -10px 20px #1fe77b,
+            10px 10px 20px #101313,
+            -10px -10px 20px #0a0b0b;
+}
+
+form > button:focus {
+  outline: none;
+}
+
+form .bitcoin {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-left: 1.5rem;
+  color: #19b962;
+  opacity: 0.8;
+
+  position: absolute;
+  padding: 0.5rem 0rem;
+}
+
+form #input-amount {
+  font-size: 1.2rem;
+  padding-left: 4rem;
+}
+
+.digit-group {
+  margin: 1rem 0rem;
+}
+
+.digit {
+  width: 3rem;
+  height: 3rem;
+
+  font-weight: 900;
+
+  border-radius: 50px;
+  background: #141616;
+  box-shadow: inset -10px -10px 20px #0f1111, inset 10px 10px 20px #191c1c;
+  text-align: center;
+  margin: 0 2px;
+}
+
+.balance {
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#warn {
+  color: rgb(255, 55, 55);
+  font-style: italic;
+  visibility: hidden;
+}
+
+.line {
+  background: rgb(25,185,98);
+  background: radial-gradient(circle, rgba(25,185,98,1) 0%, rgba(20,22,22,1) 100%);
+  width: 100%;
+  height: 1px;
+  top: 10px;
+  left: 22px;
+  border-radius: 50%;
+  overflow: hidden;
 }

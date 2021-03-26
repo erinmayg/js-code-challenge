@@ -10,19 +10,67 @@
 </head>
 
 <body>
-
   <!-- You may wrap the form in your own elements if necessary. -->
-  <form onsubmit="return !1">
+  <form class='form' onsubmit='checkBalance(event)'>
+    <div class='balance'><h1>Balance</h1>
+      <h2><span id='balance-curr'>₿</span> <span id='balance'>1,000,000</span></h2>
+    </div>
+    
+    <div class='line'></div>
+    
     <label for="input-address">Bitcoin Address</label>
-    <input id="input-address" placeholder="16q4PinynazaMYfv24juNLkbjkDQxJo2dc" />
-
+    <div class='input'>
+      <input 
+      id="input-address" 
+      placeholder="16q4PinynazaMYfv24juNLkbjkDQxJo2dc"
+      required
+      />
+    </div>
+      
+    
     <label for="input-amount">Amount to send</label>
-    <input id="input-amount" placeholder="0.0000" />
+    <div class='input'>
+      <span class='bitcoin'>₿</span>
+      <input 
+        id="input-amount" 
+        placeholder="0.0000"
+        required
+        onkeypress="return onlyCurrencyKey(event)"
+      />
+    </div>
 
     <label for="input-otp">OTP Authentication</label>
-    <input type="number" id="input-otp" placeholder="SMS OTP" />
+    <div class='digit-group'>
+    <input 
+      class='digit' type="text" id='first' maxlength="1" required placeholder="0"
+      onkeypress="return onlyNumberKey(event)" 
+      onkeyup="clickEvent(this,'sec', 'first')"
+    />
+    <input 
+      class='digit' type="text" id="sec" maxlength="1" required placeholder="0"
+      onkeypress="return onlyNumberKey(event)" 
+      onkeyup="clickEvent(this,'third', 'first')"
+    />
+    <input 
+      class='digit' type="text" id="third" maxlength="1" required placeholder="0"
+      onkeypress="return onlyNumberKey(event)"
+      onkeyup="clickEvent(this,'fourth', 'sec')"
+    />
+    <input 
+      class='digit' type="text" id="fourth" maxlength="1" required placeholder="0"
+      onkeypress="return onlyNumberKey(event)" 
+      onkeyup="clickEvent(this,'fifth', 'third')"
+    />
+    <input 
+      class='digit' type="text" id="fifth" maxlength="1" required placeholder="0"
+      onkeypress="return onlyNumberKey(event)" 
+      onkeyup="clickEvent(this,'fifth', 'fourth')"
+    />
+  </div>
 
-    <button>SEND BTC</button>
+    <button type='submit'>SEND</button>
+    
+    <p id='warn'>Balance is not enough.</p>
   </form>
 </body>
 
